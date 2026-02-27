@@ -13,10 +13,12 @@
 16    Um pedido gerado com todos os detalhes(cepEntrega)
 17 SE (pagamento.aprovado) ENTAO     
 18       enviarEmailConfirmacao(usuario.email, pedido.id)
-19     limparCarrinho(usuario)
-20     RETORNAR SUCESSO(pedido.id)
+19       quando o pagamento for comfimador ENTAO
+20     limparCarrinho(usuario)
+21     RETORNAR SUCESSO(pedido.id)
 
-21 SENAO RETORNAR ERRO("Pagamento recusado")
+23 SENAO RETORNAR ERRO("Pagamento recusado")
+
 
 
 
