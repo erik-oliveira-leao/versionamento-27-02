@@ -10,13 +10,14 @@
 13 pagamento    <- criarTransacao(cartao, total)
 14 SE pagamento.status == "APROVADO" ENTAO
 15     reservaEstoque(carrinho.itens)
-16     pedido <- gerarPedido(usuario, carrinho, pagamento, cepEntrega)
+16    Um pedido gerado com todos os detalhes(cepEntrega)
 17 SE (pagamento.aprovado) ENTAO     
 18       enviarEmailConfirmacao(usuario.email, pedido.id)
 19     limparCarrinho(usuario)
 20     RETORNAR SUCESSO(pedido.id)
 
 21 SENAO RETORNAR ERRO("Pagamento recusado")
+
 
 
 
