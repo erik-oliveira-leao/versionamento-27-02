@@ -11,11 +11,13 @@
 14 SE pagamento.status == "APROVADO" ENTAO
 15     reservaEstoque(carrinho.itens)
 16     pedido <- gerarPedido(usuario, carrinho, pagamento, cepEntrega)
-17     enviarEmailConfirmacao(usuario.email, pedido.id)
-18     limparCarrinho(usuario)
-19     RETORNAR SUCESSO(pedido.id)
+17 SE (pagamento.aprovado) ENTAO     
+18       enviarEmailConfirmacao(usuario.email, pedido.id)
+19     limparCarrinho(usuario)
+20     RETORNAR SUCESSO(pedido.id)
 
-20 SENAO RETORNAR ERRO("Pagamento recusado")
+21 SENAO RETORNAR ERRO("Pagamento recusado")
+
 
 
 
