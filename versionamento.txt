@@ -7,7 +7,6 @@
 07 descontos    <- aplicarDescontos(cupom, usuario, subtotal) // cupom pode ser nulo
 08 frete        <- calcularFrete(cepEntrega, carrinho)
 09 total        <- max(0, subtotal + frete - descontos)
-10 registrarLog("checkout_iniciado", usuario.id, total)  // C pode apagar (limpeza)
 12 enviarMetricas("checkout", total)                     // C pode apagar (limpeza)
 13 pagamento    <- criarTransacao(cartao, total)
 14 SE pagamento.status == "APROVADO" ENTAO
@@ -18,3 +17,4 @@
 19     RETORNAR SUCESSO(pedido.id)
 
 20 SENAO RETORNAR ERRO("Pagamento recusado")
+
